@@ -1,18 +1,17 @@
 import satData from './satData';
 
-const Buttons = (props) => {
-  return (
+const Buttons = (props) =>
+  (
     <div className="flex-container">
-      {props.displaySats.map((sat, id) => {
-        return (
-          <button onClick={() => props.filterByType(sat)} key={id}>
-            {sat} Orbit
+      {props.displaySats.map((orbitType, idx) =>
+        (
+          <button onClick={_ => props.filterByType(orbitType)} key={idx}>
+            {orbitType} Orbit
           </button>
-        );
-      })}
-      <button onClick={_ => props.setSat(satData)}>All Orbits</button>
+        )
+      )}
+      <button key='allOrbits' onClick={_ => props.setSat(satData)}>All Orbits</button>
       </div>
   );
-};
 
 export default Buttons;
