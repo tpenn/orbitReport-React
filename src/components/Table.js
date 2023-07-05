@@ -1,5 +1,6 @@
 const Table = ({ sat }) =>
   (
+    <>
     <table>
       <thead>
       <tr>
@@ -20,6 +21,10 @@ const Table = ({ sat }) =>
         )}
       </tbody>
     </table>
+    <p className="satCount">
+      Satellites: {sat.length}
+    </p>
+    </>
   );
 
 export default Table;

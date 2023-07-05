@@ -57,3 +57,14 @@ h1 {
   color: white;
   font-size: 60px;
 }
+
+.italic {
+  font-style: italic;
+}
+
+.satCount {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding: 8px;
+}
