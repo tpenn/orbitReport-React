@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './components/styling.css';
 import satData from "./components/satData";
 import Buttons from "./components/Buttons";
 import Table from "./components/Table";
@@ -12,7 +13,7 @@ function App() {
     const displaySats = satData.filter((newSatDisplay) => {
       return newSatDisplay.orbitType === currentType;
     });
-    
+
     setSat(displaySats);
   };
 
