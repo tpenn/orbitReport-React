@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './components/styling.css';
 import satData from "./components/satData";
 import Buttons from "./components/Buttons";
 import Table from "./components/Table";
 import Banner from "./components/Banner";
+import Counts from './components/Counts';
 
 function App() {
   const [sat, setSat] = useState(satData);
+  const calcSatCount = _ => sat.reduce((prev, curr) => (prev[curr.type] = ++prev[curr.type] || 1, prev), {});
+  const [satCounts, setSatCount] = useState(calcSatCount);
+
   const displaySats   = [...new Set(satData.map((data) => data.orbitType))];
   const filterByType  = (orbit) => setSat(satData.filter((satData) => satData.orbitType === orbit));
+
+  useEffect(_ => setSatCount(calcSatCount()), [sat]);
 
   return (
     <div>
@@ -17,8 +23,11 @@ function App() {
         filterByType = {filterByType}
         setSat       = {setSat}
         displaySats  = {displaySats}
+        calcSatCount = {calcSatCount}
       />
       <Table sat={sat} />
+      <br />
+      <Counts count={satCounts} sat={sat} />
     </div>
   );
 }

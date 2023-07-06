@@ -68,3 +68,10 @@ h1 {
   text-align: left;
   padding: 8px;
 }
+
+.satCountTable {
+  border: 2px solid #354a5f;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 25%;
+}
