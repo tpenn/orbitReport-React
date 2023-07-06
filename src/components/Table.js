@@ -11,7 +11,7 @@ const Table = ({ sat }) =>
       </thead>
       <tbody>
         { sat.map(bird =>
-          <tr key={bird.id}>
+          <tr key={bird.id} className={bird.type.replace(/\s+/g, '-').toLowerCase()}>
             <td>{bird.name}</td>
             <td>{bird.type}</td>
             <td>{bird.launchDate}</td>
