@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/orbitReport-React/static/css/main.c029af26.css",
+    "main.js": "/orbitReport-React/static/js/main.206bc5da.js",
+    "static/js/496.e557ca5e.chunk.js": "/orbitReport-React/static/js/496.e557ca5e.chunk.js",
+    "index.html": "/orbitReport-React/index.html",
+    "main.c029af26.css.map": "/orbitReport-React/static/css/main.c029af26.css.map",
+    "main.206bc5da.js.map": "/orbitReport-React/static/js/main.206bc5da.js.map",
+    "496.e557ca5e.chunk.js.map": "/orbitReport-React/static/js/496.e557ca5e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c029af26.css",
+    "static/js/main.206bc5da.js"
+  ]
+}
