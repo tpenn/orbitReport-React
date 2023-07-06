@@ -8,12 +8,14 @@ import Counts from './components/Counts';
 
 function App() {
   const [sat, setSat] = useState(satData);
+  // eslint-disable-next-line
   const calcSatCount = _ => sat.reduce((prev, curr) => (prev[curr.type] = ++prev[curr.type] || 1, prev), {});
   const [satCounts, setSatCount] = useState(calcSatCount);
 
   const displaySats   = [...new Set(satData.map((data) => data.orbitType))];
   const filterByType  = (orbit) => setSat(satData.filter((satData) => satData.orbitType === orbit));
 
+  // eslint-disable-next-line
   useEffect(_ => setSatCount(calcSatCount()), [sat]);
 
   return (
