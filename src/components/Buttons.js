@@ -2,7 +2,7 @@ import { useState } from 'react';
 import satData from './satData';
 
 const Buttons = (props) => {
-  const [active, setActive] = useState('allOrbits');
+  const [active, setActive] = useState('All');
   const handleClick = event => { setActive(event.target.id); props.filterByType(event.target.id); };
 
   return (
