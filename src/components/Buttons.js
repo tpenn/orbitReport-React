@@ -1,17 +1,24 @@
+import { useState } from 'react';
 import satData from './satData';
 
-const Buttons = (props) =>
-  (
+const Buttons = (props) => {
+  const [active, setActive] = useState('allOrbits');
+  const handleClick = event => { setActive(event.target.id); props.filterByType(event.target.id); };
+
+  return (
     <div className="flex-container">
       {props.displaySats.map((orbitType, idx) =>
         (
-          <button onClick={_ => props.filterByType(orbitType)} key={idx}>
+          <button onClick={handleClick} key={idx} id={orbitType} className={active === orbitType && "active"}>
             {orbitType} Orbit
           </button>
         )
       )}
-      <button key='allOrbits' onClick={_ => props.setSat(satData)}>All Orbits</button>
+      <button key="All" id="All" onClick={_ => { setActive('All'); props.setSat(satData); }} className={active === "All" && "active"}>
+        All Orbits
+      </button>
       </div>
-  );
+  )
+};
 
 export default Buttons;

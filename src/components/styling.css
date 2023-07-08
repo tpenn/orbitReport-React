@@ -58,6 +58,10 @@ h1 {
   font-size: 60px;
 }
 
+.active {
+  background-color: green;
+}
+
 .italic {
   font-style: italic;
 }
