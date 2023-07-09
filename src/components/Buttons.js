@@ -9,12 +9,12 @@ const Buttons = (props) => {
     <div className="flex-container">
       {props.displaySats.map((orbitType, idx) =>
         (
-          <button onClick={handleClick} key={idx} id={orbitType} className={active === orbitType && "active"}>
+          <button onClick={handleClick} key={idx} id={orbitType} className={active === orbitType ? "active" : undefined}>
             {orbitType} Orbit
           </button>
         )
       )}
-      <button key="All" id="All" onClick={_ => { setActive('All'); props.setSat(satData); }} className={active === "All" && "active"}>
+      <button key="All" id="All" onClick={_ => { setActive('All'); props.setSat(satData); }} className={active === "All"  ? "active" : undefined}>
         All Orbits
       </button>
       </div>
