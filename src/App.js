@@ -26,7 +26,7 @@ function App() {
         setSat       = {setSat}
         displaySats  = {displaySats}
       />
-      <Table sat={sat} />
+      <Table sat={sat} setSat={setSat} />
       <br />
       <Counts count={satCounts} sat={sat} />
     </div>
