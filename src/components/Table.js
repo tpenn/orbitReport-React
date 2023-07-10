@@ -29,6 +29,7 @@ const Table = ({ sat, setSat }) => {
         setSat({...sat, processed: results});
       ;
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [sFilter, sorting.field, sorting.sortOrder, sat.data]
   );
 

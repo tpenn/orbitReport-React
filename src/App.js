@@ -14,6 +14,7 @@ function App() {
   const displaySats   = [...new Set(satData.map((data) => data.orbitType))];
   const filterByType  = orbit => setSat({...sat, data: satData.filter(satData => satData.orbitType === orbit)});
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(_ => setSatCount(calcSatCount()), [sat.processed]);
 
   return (
