@@ -8,7 +8,7 @@ const Counts = ({ count, numSats }) =>
       </tr>
       </thead>
       <tbody>
-        { Object.keys(count).sort().map(type =>
+        { Object.keys(count).map(type =>
           <tr key={type} className={type.replace(/\s+/g, '-').toLowerCase()}>
             <td>{type}</td>
             <td>{count[type]}</td>

@@ -62,7 +62,7 @@ h1 {
   background-color: green;
 }
 .activeSort {
-  color: green;
+  color: lightgreen;
 }
 
 .italic {
@@ -91,4 +91,9 @@ h1 {
 }
 .space-debris:hover {
   background-color: darkred;
+}
+
+.search {
+  text-align: left;
+  padding: 10px;
 }

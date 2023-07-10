@@ -4,7 +4,7 @@ export default function Banner() {
             <header>
                 <h1>Orbit Report</h1>
             </header>
-            <p className='italic'>Click on the buttons to see the satellites in that orbit type, click on column names to sort by that column</p>
+            <p className='italic'>Click on the buttons to see the satellites in that orbit type, click on column names to sort by that column, type in search field to search/filter results</p>
         </>
     );
 }

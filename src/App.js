@@ -7,15 +7,14 @@ import Banner from "./components/Banner";
 import Counts from './components/Counts';
 
 function App() {
-  const [sat, setSat] = useState(satData);
-  const calcSatCount = _ => sat.reduce((prev, curr) => ((prev[curr.type] = ++prev[curr.type] || 1, prev)), {});
+  const [sat, setSat] = useState({ data: satData, processed: satData });
+  const calcSatCount = _ => sat.processed.reduce((prev, curr) => ((prev[curr.type] = ++prev[curr.type] || 1, prev)), {});
   const [satCounts, setSatCount] = useState(calcSatCount);
 
   const displaySats   = [...new Set(satData.map((data) => data.orbitType))];
-  const filterByType  = (orbit) => setSat(satData.filter((satData) => satData.orbitType === orbit));
+  const filterByType  = orbit => setSat({...sat, data: satData.filter(satData => satData.orbitType === orbit)});
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(_ => setSatCount(calcSatCount()), [sat]);
+  useEffect(_ => setSatCount(calcSatCount()), [sat.processed]);
 
   return (
     <div>
@@ -24,10 +23,11 @@ function App() {
         filterByType = {filterByType}
         setSat       = {setSat}
         displaySats  = {displaySats}
+        sat          = {sat}
       />
       <Table sat={sat} setSat={setSat} />
       <br />
-      <Counts count={satCounts} numSats={sat.length} />
+      <Counts count={satCounts} numSats={sat.processed.length} />
     </div>
   );
 }
