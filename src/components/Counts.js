@@ -1,10 +1,10 @@
-const Counts = ({ count, sat }) =>
+const Counts = ({ count, numSats }) =>
   (
     <table className="satCountTable">
       <thead>
       <tr>
         <th>Total</th>
-        <th>{sat.length}</th>
+        <th>{numSats}</th>
       </tr>
       </thead>
       <tbody>
