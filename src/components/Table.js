@@ -20,7 +20,8 @@ const Table = ({ sat, setSat }) => {
   useEffect(_ =>
     {
       const filtered = sFilter !== '' ?
-        sat.data.filter(obj => JSON.stringify(obj).replace(/("\w+":)/g, '').toLowerCase().indexOf(sFilter.toLowerCase()) !== -1) :
+        // sat.data.filter(obj => JSON.stringify(obj).replace(/("\w+":)/g, '').toLowerCase().indexOf(sFilter.toLowerCase()) !== -1) :
+        sat.data.filter(obj => obj.name.toLowerCase().indexOf(sFilter.toLowerCase()) !== -1) :
         sat.data;
       const results  = sorting.field !== '' ?
         filtered.sort((a, b) => (a[sorting.field] > b[sorting.field] ? 1 : a[sorting.field] < b[sorting.field] ? -1 : 0) * (sorting.sortOrder ? 1 : -1)) :
