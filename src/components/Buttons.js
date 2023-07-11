@@ -9,12 +9,12 @@ const Buttons = ({ filterByType, displaySats, setSat, sat }) => {
     <div className="flex-container">
       { displaySats.map((orbitType, idx) =>
         (
-          <button onClick={handleClick} key={idx} id={orbitType} className={active === orbitType ? "active" : undefined}>
+          <button onClick={handleClick} key={idx} id={orbitType} className={active === orbitType ? "button-active" : "button"}>
             {orbitType} Orbit
           </button>
         )
       )}
-      <button key="All" id="All" onClick={_ => { setActive('All'); setSat({...sat, data: satData}); }} className={active === "All"  ? "active" : undefined}>
+      <button key="All" id="All" onClick={_ => { setActive('All'); setSat({...sat, data: satData}); }} className={active === "All"  ? "button-active" : "button"}>
         All Orbits
       </button>
       </div>

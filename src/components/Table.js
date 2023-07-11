@@ -44,7 +44,7 @@ const Table = ({ sat, setSat }) => {
         <tr>
           {
             tableFields.map(tableField =>
-              <th key={tableField.field} id={tableField.field} onClick={handleClick} className={sorting.field === tableField.field ? "activeSort" : undefined}>
+              <th key={tableField.field} id={tableField.field} onClick={handleClick} className={sorting.field === tableField.field ? "tableHeader-active" : "tableHeader"}>
                 {tableField.name}
               </th>
             )

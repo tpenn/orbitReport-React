@@ -58,10 +58,16 @@ h1 {
   font-size: 60px;
 }
 
-.active {
+.button-active {
   background-color: green;
 }
-.activeSort {
+.button:hover {
+  background-color: green;
+}
+.tableHeader-active {
+  color: lightgreen;
+}
+.tableHeader:hover {
   color: lightgreen;
 }
 
@@ -91,7 +97,7 @@ h1 {
   background-color: red;
 }
 .space-debris:hover {
-  background-color: darkred;
+  background-color: coral;
 }
 
 .search {
