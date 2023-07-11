@@ -12,13 +12,8 @@ const Table = ({ sat, setSat }) => {
   if (typeof setSat !== 'function') { sat = { processed: sat }; setSat = _ => {}; }
   
   const [sFilter, setSFilter] = useState('');
-  const [sorting, setSorting] = useState({ field: '', sortOrder: true });
-  const handleClick = event => {
-    let ascending = sorting.sortOrder;
-
-    if (sorting.field === event.target.id) ascending = !ascending;
-    setSorting({ field: event.target.id, sortOrder: ascending });
-  };
+  const [sorting, setSorting] = useState({ field: '', sortOrder: 1 });
+  const handleClick = event => setSorting({ field: event.target.id, sortOrder: sorting.field === event.target.id ? -sorting.sortOrder : sorting.sortOrder });
 
   useEffect(_ =>
     {
@@ -26,11 +21,14 @@ const Table = ({ sat, setSat }) => {
         // sat.data.filter(obj => JSON.stringify(obj).replace(/("\w+":)/g, '').toLowerCase().indexOf(sFilter.toLowerCase()) !== -1) :
         sat.data.filter(obj => obj.name.toLowerCase().indexOf(sFilter.toLowerCase()) !== -1) :
         sat.data;
-      const results  = sorting.field !== '' ?
-        filtered.sort((a, b) => (a[sorting.field] > b[sorting.field] ? 1 : a[sorting.field] < b[sorting.field] ? -1 : 0) * (sorting.sortOrder ? 1 : -1)) :
+      
+      const results = sorting.field !== '' ?
+        filtered.sort((a, b) =>
+          (a[sorting.field] > b[sorting.field] ? 1 : a[sorting.field] < b[sorting.field] ? -1 : 0) *
+          (typeof a[sorting.field] === 'boolean' ? -sorting.sortOrder : sorting.sortOrder)) :
         filtered;
       
-        setSat({...sat, processed: results});
+      setSat({...sat, processed: results});
       ;
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
